@@ -8,7 +8,6 @@ import {
 
 const router = express.Router();
 
-//all these routes will start with /api/products (from server.js) and then call the respective controller functions from product.controller.js
 router.get("/", getProducts);
 router.post("/", createProduct);
 router.put("/:id", updateProduct);

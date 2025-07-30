@@ -9,18 +9,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const __dirname = path.resolve(); //for Dpl
+const __dirname = path.resolve();
 
-app.use(express.json()); // allows us to accept JSON data in req.body
+app.use(express.json());
 
-app.use("/api/products", productRoutes); // Calling product.route.js file
+app.use("/api/products", productRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
-  // Serve static files from the React app - __dirname is the root directory of the project (go there and then go to frontend/dist)
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-    //so ova se vrakja celata app so ja imame
   });
 }
 

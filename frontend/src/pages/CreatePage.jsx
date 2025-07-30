@@ -21,7 +21,7 @@ const CreatePage = () => {
 
   const { createProduct } = useProductStore();
 
-  const toast = useToast(); //show toast notifications for success or error messages
+  const toast = useToast();
 
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
@@ -40,7 +40,7 @@ const CreatePage = () => {
         isClosable: true,
       });
     }
-    setNewProduct({ name: "", price: "", image: "" }); //reset the form after submission
+    setNewProduct({ name: "", price: "", image: "" });
   };
 
   return (

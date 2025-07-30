@@ -16,10 +16,10 @@ const productSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // createdAt and updatedAt fields
+    timestamps: true,
   }
 );
 
 const Product = mongoose.model("Product", productSchema);
 
-export default Product; //because we want to use this model in other files
+export default Product;

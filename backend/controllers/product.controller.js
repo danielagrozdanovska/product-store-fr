@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 export const getProducts = async (req, res) => {
   try {
-    const products = await Product.find(); //passing an empty object - fetch all products
+    const products = await Product.find();
     res.status(200).json({ success: true, data: products });
   } catch (error) {
     console.log("Error fetching products:", error.message);
@@ -12,7 +12,7 @@ export const getProducts = async (req, res) => {
 };
 
 export const createProduct = async (req, res) => {
-  const product = req.body; // user will send this data
+  const product = req.body;
 
   if (!product.name || !product.price || !product.image) {
     return res
@@ -73,7 +73,6 @@ export const deleteProduct = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Product deleted successfully" });
   } catch (error) {
-    // If the product is not found or there's an error
     console.log("Error deleting product:", error.message);
     res.status(500).json({ success: false, message: "Server error" });
   }

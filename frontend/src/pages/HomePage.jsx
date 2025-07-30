@@ -2,7 +2,6 @@ import { Container, VStack, Text, SimpleGrid } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useProductStore } from "../store/product";
-//import Product from "backend/models/product.model";
 import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
@@ -26,11 +25,7 @@ const HomePage = () => {
         >
           Current Products 🚀
         </Text>
-        <SimpleGrid
-          columns={{ base: 1, md: 2, lg: 3 }} //object because we want to have responsive columns, for base screens 1 grid, for medium screens 2 grids, for large screens 3 grids
-          spacing={8}
-          w="full"
-        >
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} w="full">
           {products.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
